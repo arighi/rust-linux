@@ -33,7 +33,7 @@ impl Allocator for CoherentAllocator {
     }
 
     unsafe fn allocation_data(data: &Device) -> Device {
-        unsafe { Device::from_dev_no_reference(data) }
+        Device::from_dev_no_reference(data)
     }
 }
 
@@ -70,6 +70,7 @@ pub fn try_alloc_coherent<T>(
     }
 }
 
+#[allow(dead_code)]
 pub struct Pool<T> {
     ptr: *mut bindings::dma_pool,
     dev: Device,

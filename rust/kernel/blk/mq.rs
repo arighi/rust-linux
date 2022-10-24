@@ -14,6 +14,7 @@ use core::{
 };
 
 #[macros::vtable]
+#[allow(unused)]
 pub trait Operations: Sized {
     type RequestData;
     type QueueData: PointerWrapper;
@@ -295,6 +296,7 @@ impl<T: Operations> Drop for TagSet<T> {
     }
 }
 
+#[allow(dead_code)]
 pub struct RequestQueue<T: Operations> {
     // TODO: Make this private.
     pub ptr: *mut bindings::request_queue,
@@ -503,6 +505,7 @@ impl Write for RawWriter {
     }
 }
 
+#[allow(dead_code)]
 pub struct GenDisk<T: Operations> {
     tagset: Ref<TagSet<T>>,
     gendisk: *mut bindings::gendisk,

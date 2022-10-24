@@ -460,7 +460,6 @@ export rust_common_flags := --edition=2021 \
 			    -Zbinary_dep_depinfo=y \
 			    -Dunsafe_op_in_unsafe_fn -Drust_2018_idioms \
 			    -Dunreachable_pub -Dnon_ascii_idents \
-			    -Wmissing_docs \
 			    -Drustdoc::missing_crate_level_docs \
 			    -Dclippy::correctness -Dclippy::style \
 			    -Dclippy::suspicious -Dclippy::complexity \
