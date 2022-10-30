@@ -30,6 +30,7 @@
 #include <linux/irqchip/chained_irq.h>
 #include <linux/irqdomain.h>
 #include <linux/irq.h>
+#include <linux/jiffies.h>
 #include <linux/mutex.h>
 #include <linux/netdevice.h>
 #include <linux/of_device.h>
@@ -712,6 +713,12 @@ void *rust_helper_pci_get_drvdata(struct pci_dev *pdev)
     return pci_get_drvdata(pdev);
 }
 EXPORT_SYMBOL_GPL(rust_helper_pci_get_drvdata);
+
+u64 rust_helper_get_jiffies_64(void)
+{
+	return get_jiffies_64();
+}
+EXPORT_SYMBOL_GPL(rust_helper_get_jiffies_64);
 
 /*
  * We use `bindgen`'s `--size_t-is-usize` option to bind the C `size_t` type
